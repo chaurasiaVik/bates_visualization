@@ -113,3 +113,7 @@ var n_to_nui;
 
 
  
+
+
+var rangeSlider;
+var rangeBullet

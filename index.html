@@ -5,7 +5,8 @@
   <meta http-equiv='Content-Type' content='text/html' charset='utf-8' />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>M&ouml;bius bands</title>
+  <title>Orientable bands</title>
+  <!-- <title>M&ouml;bius bands</title> -->
   <link href='utils/3M_favicon.png' rel='icon'>
   <link rel='stylesheet' type='text/css' href='utils/kN.css'>
   <link rel="stylesheet" href='utils/shepherd.css'>
@@ -53,55 +54,48 @@
   <div class='leftbar'>
 
 
-
-
-    <svg width='200' height='110' viewBox='-100 -55 200 110' style='margin-top:10px'>
-      <g class='touchElement glow-effect' id='buttNumOfTetMinus'>
-        <title>decrease the number n of half twists of the optimal band with n fold rotational symmetry</title>
-        <circle cx='-62' cy='10' r='34' /> <!-- Modified cy here -->
-        <polygon points='-80 7 -80 13 -44 13 -44 7' fill='#fff' /> <!-- Adjusted y values in points -->
-      </g>
-      <g class='touchElement glow-effect' id='buttNumOfTetPlus'>
-        <title>increase the number n of half twists of the optimal band with n fold rotational symmetry</title>
-        <circle cx='62' cy='10' r='34' /> <!-- Modified cy here -->
-        <polygon points='80 7 80 13 65 13 65 28 59 28 59 13 44 13 44 7 59 7 59 -8 65 -8 65 7' fill='#fff' />
-        <!-- Adjusted y values in points -->
-      </g>
-      <g class="textElement" id='infoTet'>
-        <text y='-40'>number of half twists</text>
-        <text id='infoNumOfTet' y='16'>3</text>
-      </g>
-    </svg>
+    <br>
+    <g  class = "textElement" >
+      <text> parameters </text>
+    </g>
+      <br>
     <!-- // m value  -->
-    <input type="range" id="m_form" min="0" max="6" value="1" step="1">
-    <div class="inputBox">
-      <input type="number" id="m_slider" min="0" max="6" value="1" step="1">
-    </div>
-
-    <!-- // n value  -->
-    <input type="range" id="n_form" min="-10" max="-3" value="7" step="1">
-    <div class="inputBox">
-      <input type="number" id="n_slider" min="-10" max="-3" value="7" step="1">
-    </div>
-    <!-- 
-     // alpha value 
-      -->
-    <input type="range" id="alpha_slider" min="0" max="1" value="0.25" step="0.005">
-    <div class="inputBox">
+ 
+            <!-- m value -->
+            <div class="slider-container">
+                <span id="m_value">1</span>
+                <input class = "m_slider" type="range" id="m_slider" min="1" max="6" value="1" step="1">
+            </div>
+            <!-- n value -->
+            <div class="slider-container">
+                <span id="n_value">7</span>
+                <input type="range" id="n_slider" min="-10" max="-3" value="7" step="1">
+            </div>
+            <!-- alpha value -->
+            <div class="slider-container">
+                <span id="alpha_value">0.25</span>
+                <input type="range" id="alpha_slider" min="0" max="1" value="0.25" step="0.005">
+            </div>
+        
+    <!-- <div class="inputBox">
       <input type="number" id="alpha_form" min="0" max="1" value="0.25" step="0.005">
-    </div>
+    </div> -->
 
-
-    <svg id='playSVG' width='200' height='200' viewBox='-60 -60 120 120' style='margin-top:10px'>
+    <br>
+    <g   class = "textElement">
+      <text> play/pause </text>
+    </g>
+      
+    <svg id='playSVG' width='200' height='50' viewBox='-60 -60 120 120' style='margin-top:10px'>
       <g class='touchElement glow-effect' id='buttPlayPause'>
         <title> click to play the everting motion</title>
-        <circle cx='0' cy='0' r='20' />
-        <polygon id='playPausePoly' points='-7 -10 -7 10 13 0' fill='#fff' />
+        <circle cx='0' cy='0' r='60' />
+        <polygon id='playPausePoly' points='-25 -40 -25 40 43 0' fill='#fff' />
       </g>
       <g class='touchElement  ' id='clockRing'>
         <title> drag to evert the band</title>
-        <circle cx='0' cy='0' r='40' fill='none' stroke='#555' stroke-width='26' />
-        <circle id='clockHand' r='10' fill='#fff' />
+        <circle cx='0' cy='0' r='0' fill='none' stroke='#555' stroke-width='26' />
+        <circle id='clockHand' r='0' fill='#fff' />
       </g>
     </svg>
 
@@ -120,48 +114,60 @@
       </defs>
     </svg>
 
+    <g  class = "textElement">
+      <text> speed </text>
+    </g>
+    <div class="slider-container">
+      <span id="speed_value">1</span>
+      <input   type="range" id="speedSlider" min="0" max="50" value="1" step=".2">
+  </div>
 
-
-    <svg id='speedSlider' class='slider glow-effect' width='200' height='100' viewBox='-100 -25 200 50'>
+    <!-- <svg id='speedSlider' class='slider glow-effect' width='200' height='100' viewBox='-100 -25 200 50'>
       <title> slide to change the speed of eversion</title>
       <polygon fill='#555' points='-100 -20 -100 20 100 20 100 -20' />
       <rect width='38' height='38' x='-19' y='-19' />
       <text x='-100' y='-25'></text>
-    </svg>
+    </svg> -->
+    <g  class = "textElement" >
+      <text> width </text>
+    </g>
 
-    <svg id='hingeLengthSlider' class='slider glow-effect' width='200' height='100' viewBox='-100 -25 200 50'>
+    <div class="slider-container">
+      <span id="hinge_value">1</span>
+      <input   type="range" id="hingeLengthSlider" min="0" max="30" value="1" step=".1">
+  </div>
+    <!-- <svg id='hingeLengthSlider' class='slider glow-effect' width='200' height='100' viewBox='-100 -25 200 50'>
       <title> slide to change the width of the band</title>
       <polygon fill='#555' points='-100 -20 -100 20 100 20 100 -20' />
       <rect width='38' height='38' x='-19' y='-19' />
       <text x='-100' y='-25'></text>
-    </svg>
+    </svg> -->
 
   </div>
 
-  <div class='rightbar'>
-    <button class='button' id='buttFullScreen' title='enable full screen'> full screen </button>
-    <br>
-    <br>
-    <button class='button' id='buttShowMid' title='path traced by a point on the midline
-    of the band  during the everting motion'> eversion path </button>
-    <button class='button' id='buttShowUnit' title='show 1/n th of the band with n half twists '> show unit </button>
+   <div class='rightbar'>  
+    <!-- <button class='button' id='buttFullScreen' title='enable full screen'> full screen </button>
+     -->
+     <button class='button' id="buttShowKappa"
+     title='curvature of the midline. the rainbow color corresponds to the arclength. the n red dots are evenly spaced points on the band with n half twists'>
+     midline curvature</button>
+     <button class='button' id='buttShowMid' title='path traced by a point on the midline
+     of the band  during the everting motion'> eversion path </button>
+     <button class='button' id='buttShowUnit' title='show 1/n th of the band with n half twists '> show unit </button>
     <!-- <button class='button' id='buttShowAxis'> show axis </button> -->
-    <br>
-    <br>
+    
     <!-- <g class="textElement">
 
       <text> physics </text>
     </g> -->
-
+<!-- 
     <button class='button' id="buttShowEnergy"
       title='dimensionless torsion of the midline versus dimensionless bending energy of the stable bands. click on the plot to change the torsion'>
-      bending energy</button>
-    <button class='button' id="buttShowKappa"
-      title='curvature of the midline. the rainbow color corresponds to the arclength. the n red dots are evenly spaced points on the band with n half twists'>
-      curvature</button>
+      bending energy</button> -->
+   
 
     <br>
-    <br>
+    
     <g class="textElement">
 
       <text> colors </text>
@@ -178,7 +184,7 @@
     <input type="color" id="colorPicker" style="display: none;">
 
     <!-- <input class="jscolor" value="ab2567" data-jscolor="{format:'rgba', position:'right', width:181, height:101}"> -->
-    <br>
+     
     <br>
     <g class="textElement">
       <text> view angle </text>
@@ -253,38 +259,64 @@
     document.addEventListener('DOMContentLoaded', function () {
 
 
-      const elements = document.querySelectorAll('.leftbar .touchElement, .leftbar .slider, .rightbar .touchElement, .rightbar .slider, .leftbar .button, .rightbar .button, .leftbar .textElement, .rightbar .textElement');
+      const elements = document.querySelectorAll('.leftbar .touchElement, .leftbar .slider, .rightbar .touchElement, .rightbar .slider, .leftbar .button, .rightbar .button, .leftbar .textElement, .rightbar .textElement, .leftbar #m_slider, .leftbar #n_slider, .leftbar #alpha_slider, .leftbar span'  );
       elements.forEach(el => el.classList.add('default-visible'));
 
       setTimeout(() => {
         elements.forEach(el => el.classList.remove('default-visible'));
-      }, 15000);
+      }, 5000);
     });
 
 
 
     window.addEventListener('DOMContentLoaded', function () {
 
-      // initialize the parameter sliders 
+ 
+      const mSlider = ebID("m_slider");
+       const nSlider = ebID('n_slider');
+       const alphaSlider = ebID('alpha_slider');
+       const speedSlider = ebID('speedSlider');
+       const hingeSlider = ebID('hingeLengthSlider');
+      //const alphaForm = ebID('alpha_form');
 
 
-      const mSlider = ebID('m_slider');
-      const mForm = ebID('m_form');
-      const nSlider = ebID('n_slider');
-      const nForm = ebID('n_form');
-      const alphaSlider = ebID('alpha_slider');
-      const alphaForm = ebID('alpha_form');
+      mSlider.oninput = function() {
+    ebID('m_value').textContent =  "m = " + this.value.toString();
+}
+
+nSlider.oninput = function() {
+    ebID('n_value').textContent = "n = "  + this.value.toString();
+}
+
+alphaSlider.oninput = function() {
+    ebID('alpha_value').innerHTML ="\u03B1 = " + parseFloat(this.value).toFixed(4).toString()  + "&pi;" ;
+}
+
+speedSlider.oninput = function() {
+    ebID('speed_value').innerHTML = parseFloat(this.value/50).toFixed(2).toString()  ;
+}
+hingeSlider.oninput = function() {
+    ebID('hinge_value').innerHTML = parseFloat(this.value/30).toFixed(2).toString()  ;
+}
+ 
+
+// Initialize values
+ebID('m_value').textContent = "m = " + mSlider.value.toString();
+ebID('n_value').textContent = "n = " + nSlider.value.toString();
+ebID('alpha_value').innerHTML = "\u03B1 = " + parseFloat(0.2314598521523062).toFixed(4).toString()  + "&pi;" ;
+
+ebID('speed_value').innerHTML = parseFloat(speedSlider.value/50).toFixed(2).toString()  ;
+ebID('hinge_value').innerHTML = parseFloat(hingeSlider.value/50).toFixed(2).toString()  ;;
+
 
       // initialize the slider values 
       mSlider.value = 1;
-      mForm.value = 1;
-
+ 
       updateNRange(mSlider.value);
 
       nSlider.value = -3;
-      nForm.value = -3;
-      alphaSlider.value = 1 / 4;
-      alphaForm.value = 1 / 4;
+       alphaSlider.value = 1 / 4;
+      //alphaForm.value = 1 / 4;
 
       var m1 = mSlider.value;
       var n1 = nSlider.value;
@@ -315,32 +347,30 @@
         let rangeMax = -value - 1;
         nSlider.min = rangeMin;
         nSlider.max = rangeMax;
-        nForm.min = rangeMin;
-        nForm.max = rangeMax;
+        
         n1 = Math.round((rangeMin + rangeMax) / 2);
         nSlider.value = n1;
-        nForm.value = n1;
-
+ 
       }
       function updateAlphaRange(value) {
         // Update the range of n_slider and n_form based on the value
         // This example sets the min and max to be -value and value respectively
         // implementing  the closure condition abs(n)>abs(m)/2
          let temp = Math.acos(-value - Math.sqrt(value * value - 1)) / Math.PI
-        let rangeMin = temp * .04;
+        let rangeMin = temp * .02;
         let rangeMax = temp;
         alphaSlider.min = rangeMin;
         alphaSlider.max = rangeMax;
-        alphaForm.min = rangeMin;
-        alphaForm.max = rangeMax;
+        //alphaForm.min = rangeMin;
+        //alphaForm.max = rangeMax;
         alphaSlider.value = (rangeMin + rangeMax) / 2;
-        alphaForm.value = (rangeMin + rangeMax) / 2;
+        //alphaForm.value = (rangeMin + rangeMax) / 2;
 
         alpha1 = alphaSlider.value * Math.PI;
 
         let stepSize = (rangeMax - rangeMin) / 200; // Calculating the step size for 100 steps
         alphaSlider.step = stepSize;
-        alphaForm.step = stepSize;
+        //alphaForm.step = stepSize;
         // console.log(`the value of n and m are ${n1} and ${m1}`);
         // console.log(`the maximum range of alpha is ${temp}`);
 
@@ -350,8 +380,7 @@
 
 
       mSlider.addEventListener('input', function () {
-        syncValues(mSlider, mForm);
-        updateNRange(mSlider.value);
+         updateNRange(mSlider.value);
 
         m1 = mSlider.value;
         updateAlphaRange(n1 / m1);
@@ -360,59 +389,34 @@
         document.body.dispatchEvent(nChanged);
       });
 
-      mForm.addEventListener('input', function () {
-        syncValues(mForm, mSlider);
-        updateNRange(mForm.value);
-        m1 = mSlider.value;
-        updateAlphaRange(n1 / m1);
-
-
-        document.body.dispatchEvent(nChanged);
-      });
+      
 
       nSlider.addEventListener('input', function () {
-        syncValues(nSlider, nForm);
-        n1 = nSlider.value;
+         n1 = nSlider.value;
         updateAlphaRange(n1 / m1);
 
         document.body.dispatchEvent(nChanged);
 
       });
 
-      nForm.addEventListener('input', function () {
-        let mValue = parseInt(mSlider.value);
-        let nValue = parseFloat(nForm.value);
-        console.log(`the value of n and m are ${n1} and ${m1}`);
-                if (!Number.isInteger(nValue) || nValue >= -mValue) {
-            nForm.value = nSlider.value; // Reset to current slider value
-             nForm.setCustomValidity('Please enter an integer for n less than -m.');
-        } else {
-            nSlider.value = nValue;
-            nForm.setCustomValidity(' ');
-            syncValues(nForm, nSlider);
-             n1 = nSlider.value;
-            updateAlphaRange(n1 / m1);
-
-         document.body.dispatchEvent(nChanged);
-        }
-    });
-
+      
        
   
 
       alphaSlider.addEventListener('input', function () {
-        syncValues(alphaSlider, alphaForm);
+        //syncValues(alphaSlider, alphaForm);
         alpha1 = alphaSlider.value * Math.PI;
         document.body.dispatchEvent(nChanged);
 
       });
 
-      alphaForm.addEventListener('input', function () {
-        syncValues(alphaForm, alphaSlider);
-        alpha1 = alphaSlider.value * Math.PI;
-        document.body.dispatchEvent(nChanged);
+      // alphaForm.addEventListener('input', function () {
+      //   syncValues(alphaForm, alphaSlider);
+      //   alpha1 = alphaSlider.value * Math.PI;
+      //   ebID('alpha_value').innerHTML ="\u03B1 = " + parseFloat(this.value).toFixed(4).toString()  + "&pi;" ;
+      //   document.body.dispatchEvent(nChanged);
 
-      });
+      // });
 
 
 
@@ -871,7 +875,7 @@
         }
 
         function setSliderPosition(newValue) {
-          var slider = document.getElementById("energySlider");
+          var slider = ebID("energySlider");
           if (slider) {
             slider.value = newValue; // Set the slider value
             // Trigger any event or function associated with the slider's change
@@ -1012,10 +1016,10 @@
         function playIt() {
           play = !play;
           if (!play) {
-            ebID('playPausePoly').setAttribute('points', '-7 -10 -7 10 13 0');
-          }
+            ebID('playPausePoly').setAttribute('points', '-25 -40 -25 40 43 0');
+          }                                 //-7 -10 -7 10 13 0   old size 
           else {
-            ebID('playPausePoly').setAttribute('points', '-7 -10 -7 10 -2 10 -2 -10 2 -10 2 10 7 10 7 -10 -7 -10');
+            ebID('playPausePoly').setAttribute('points', '-31 -40 -31 40 -10 40 -10 -40 14 -40 14 40 35 40 35 -40 -25 -40');
           }
         };
         ebID('buttPlayPause').addEventListener('click', playIt, false);
@@ -1023,59 +1027,66 @@
 
         // speed control //////////////////////////////////////////////////////////////////
 
-        var speedSlider = new Slider('speedSlider', 4, 100, 20, 'speed ', 0, '%');
-        ebID('speedSlider').addEventListener('sliderChange', function () {
-          speedy = speedSlider.getValue() / 2000 / n ** .2;
-        });
+        // var speedSlider = new Slider('speedSlider', 4, 100, 20, 'speed ', 0, '%');
+        // ebID('speedSlider').addEventListener('sliderChange', function () {
+        //   speedy = speedSlider.getValue() / 2000 / n ** .2;
+        // });
+
+        speedSlider.addEventListener('input', function () {
+          
+        speedy = speedSlider.value/ 2000 / n ** .2;;
+         
+      });
+      
+        hingeSlider.addEventListener('input', function () {
+          
+          hl = hingeSlider.value/50;
+        if (!play) updateBandMesh(k, hl);
+          // if (showCorn) {
+          //   meshDispose(tubeCorn);
+          //   createTube(tubeCorn,1,hl,white);
+          // }
+          refresh = true;
+         
+      });
 
         // change width/length ////////////////////////////////////////////////////////////
+ 
 
-        var hingeLengthSlider = new Slider('hingeLengthSlider', 0, 50, 20, 'width', 0, '%');
-        ebID('hingeLengthSlider').addEventListener('sliderChange', function () {
-          hl = hingeLengthSlider.getValue() / 50.0;
-          if (!play) updateBandMesh(k, hl);
-          // if (showCorn) {
-          //   meshDispose(tubeCorn);
-          //   createTube(tubeCorn,1,hl,white);
-          // }
-          refresh = true;
-        })
+        // ///  modifying sliders during the guiding tour 
+        // ebID('speedSlider').addEventListener('tourSpeed', function () {
+        //   speedSlider = new Slider('speedSlider', 4, 100, 40, 'speed ', 0, '%');
+        //   speedy = 40 / 2000 / n ** .2;
+        // });
 
-
-        ///  modifying sliders during the guiding tour 
-        ebID('speedSlider').addEventListener('tourSpeed', function () {
-          speedSlider = new Slider('speedSlider', 4, 100, 40, 'speed ', 0, '%');
-          speedy = 40 / 2000 / n ** .2;
-        });
-
-        ebID('speedSlider').addEventListener('tourSpeedBack', function () {
-          speedSlider = new Slider('speedSlider', 4, 100, 20, 'speed ', 0, '%');
-          speedy = 20 / 2000 / n ** .2;
-        });
+        // ebID('speedSlider').addEventListener('tourSpeedBack', function () {
+        //   speedSlider = new Slider('speedSlider', 4, 100, 20, 'speed ', 0, '%');
+        //   speedy = 20 / 2000 / n ** .2;
+        // });
 
 
-        ebID('hingeLengthSlider').addEventListener('tourWidth', function () {
-          hl = 0.4;
-          hingeLengthSlider = new Slider('hingeLengthSlider', 0, 100, 40, 'width', 0, '%');
+        // ebID('hingeLengthSlider').addEventListener('tourWidth', function () {
+        //   hl = 0.4;
+        //   hingeLengthSlider = new Slider('hingeLengthSlider', 0, 100, 40, 'width', 0, '%');
 
-          if (!play) updateBandMesh(k, hl);
-          // if (showCorn) {
-          //   meshDispose(tubeCorn);
-          //   createTube(tubeCorn,1,hl,white);
-          // }
-          refresh = true;
-        })
-        ebID('hingeLengthSlider').addEventListener('tourWidthBack', function () {
-          hl = 0.2;
-          hingeLengthSlider = new Slider('hingeLengthSlider', 0, 100, 20, 'width', 0, '%');
+        //   if (!play) updateBandMesh(k, hl);
+        //   // if (showCorn) {
+        //   //   meshDispose(tubeCorn);
+        //   //   createTube(tubeCorn,1,hl,white);
+        //   // }
+        //   refresh = true;
+        // })
+        // ebID('hingeLengthSlider').addEventListener('tourWidthBack', function () {
+        //   hl = 0.2;
+        //   hingeLengthSlider = new Slider('hingeLengthSlider', 0, 100, 20, 'width', 0, '%');
 
-          if (!play) updateBandMesh(k, hl);
-          // if (showCorn) {
-          //   meshDispose(tubeCorn);
-          //   createTube(tubeCorn,1,hl,white);
-          // }
-          refresh = true;
-        })
+        //   if (!play) updateBandMesh(k, hl);
+        //   // if (showCorn) {
+        //   //   meshDispose(tubeCorn);
+        //   //   createTube(tubeCorn,1,hl,white);
+        //   // }
+        //   refresh = true;
+        // })
 
         ////////////////////////////////////////////////////////////////
 
@@ -1083,14 +1094,14 @@
 
         // var ortho = false;
         var fullScreen = false;
-        ebID('buttFullScreen').addEventListener('click', function () {
-          fullScreen = !fullScreen;
-          buttonSwitchColor(ebID('buttFullScreen'), fullScreen);
-          toggleFullScreen();
-          // ortho = !ortho;
-          // if ( ortho ) camera.mode = BABYLON.Camera.ORTHOGRAPHIC_CAMERA;
-          // else camera.mode = BABYLON.Camera.PERSPECTIVE_CAMERA;
-        });
+        // ebID('buttFullScreen').addEventListener('click', function () {
+        //   fullScreen = !fullScreen;
+        //   buttonSwitchColor(ebID('buttFullScreen'), fullScreen);
+        //   toggleFullScreen();
+        //   // ortho = !ortho;
+        //   // if ( ortho ) camera.mode = BABYLON.Camera.ORTHOGRAPHIC_CAMERA;
+        //   // else camera.mode = BABYLON.Camera.PERSPECTIVE_CAMERA;
+        // });
 
 
         // show axis/plane ////////////////////////////////////////////////////////////////
@@ -1234,54 +1245,7 @@
         var showEversionPath = false;
 
 
-
-
-        ebID('buttShowEnergy').addEventListener('click', function () {
-          showEnergy = !showEnergy;
-          buttonSwitchColor(ebID('buttShowEnergy'), showEnergy);
-
-          if (showEnergy == false) {
-            contentK.style.top = '0%';
-            contentE.style.height = '0%';
-            destroyChart(chart);  // Destroy the chart when showEnergy is false
-          } else {
-            contentE.style.height = '25%';
-            //nu_i = parseInt(nuSlider.getValue());
-            createChart(nu_i);
-            document.body.addEventListener('nuiChanged', function () {
-              deleteDataset(chart, 'Marker');
-              deleteDataset(chart, 'cursor1');
-              deleteDataset(chart, 'cursor2');
-
-              pushDataset(chart, nu_i - 1);
-
-              if (showKappa == true) {
-                contentK.style.top = '25%';
-              }
-
-            });
-            document.body.dispatchEvent(energyChanged);
-
-            document.body.addEventListener('nChanged', function (e) {
-              deleteDataset(chart, 'Marker');
-              deleteDataset(chart, 'cursor1');
-              deleteDataset(chart, 'cursor2');
-
-              pushDataset(chart, nu_i - 1);
-            });
-            document.body.addEventListener('plotClicked', function (e) {
-              nu_i = e.detail.nu_i;
-              n = e.detail.n;
-              deleteDataset(chart, 'Marker');
-              deleteDataset(chart, 'cursor1');
-              deleteDataset(chart, 'cursor2');
-
-              pushDataset(chart, nu_i - 1);
-            });
-
-            // Create the chart when showEnergy is true
-          }
-        });
+ 
         // energy changed during the tour
 
 
@@ -1345,7 +1309,7 @@
 
 
         function addSlider() {
-          var canvas = document.getElementById("renderCanvasE");
+          var canvas = ebID("renderCanvasE");
           var slider = document.createElement("input");
           slider.setAttribute("type", "range");
           slider.setAttribute("id", "energySlider");
@@ -1378,7 +1342,7 @@
         }
 
         function removeSlider() {
-          var slider = document.getElementById("energySlider");
+          var slider = ebID("energySlider");
           if (slider) {
             slider.remove();
           }
@@ -1388,33 +1352,16 @@
 
 
         // window.addEventListener("resize", function () {
-        //   var slider = document.getElementById("energySlider");
-        //   var canvas = document.getElementById("renderCanvasE");
+        //   var slider = ebID("energySlider");
+        //   var canvas = ebID("renderCanvasE");
         //   if (slider && canvas) {
         //     positionSliderAbovePlot(slider, canvas);
         //   }
         // });
 
-        ebID("buttShowEnergy").addEventListener('click', function () {
-          if (showEnergy) {
-            addSlider(); // Add the slider only if showEnergy is true
-            // When the slider is created
-            var energySlider = document.getElementById('energySlider');
-            if (energySlider) {
-              // Initially set the opacity to 1
-              energySlider.style.opacity = 1;
+       
 
-              // Set a timeout to change the opacity back to 0 after a specified time
-              setTimeout(function () {
-                energySlider.style.opacity = '';
-              }, 2000); // 5000 milliseconds = 5 seconds
-            }
-          } else {
-            removeSlider(); // Remove the slider only if showEnergy is false
-          }
-
-
-        });
+ 
 
         ////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////

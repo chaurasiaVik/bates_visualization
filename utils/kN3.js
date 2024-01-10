@@ -219,11 +219,11 @@ for (var i = 1; i < N; i++) {
 
  kappa0[N] = tx0[N] * hx2p[N] + ty0[N] * hy2p[N] + tz0[N] * hz2p[N];
 
-//  // normalizing curvature 
-
-   let kmax = Math.max(...kappa0.map(Math.abs));;
+//  // normalizing curvature
+ 
+  let kmax = Math.max(...kappa0.map(Math.abs)); 
   kappa0 = kappa0.map((num) => num / kmax);
-
+ 
  
 ///////////////////////
 
@@ -276,25 +276,25 @@ var animationData = function(j) {
    if (ind == 0) {
      ind = 1;
   }
-   let or =  1;
+   let orientation =  1;
 
   if(ind<N+1){
  
   let ar1 = Array.from(hx0.slice(ind - 1, N));
-  let ar2 = Array.from(hx0.slice(0, ind).map((x) => or * x));
+  let ar2 = Array.from(hx0.slice(0, ind).map((x) => orientation * x));
   
   var hx = ar1.concat(ar2);
 
   ar1 = Array.from(hy0.slice(ind - 1, N ));
-  ar2 = Array.from(hy0.slice(0, ind).map((x) => or * x));
+  ar2 = Array.from(hy0.slice(0, ind).map((x) => orientation * x));
   var hy = ar1.concat(ar2);
 
   ar1 = Array.from(hz0.slice(ind - 1, N));
-  ar2 = Array.from(hz0.slice(0, ind).map((x) => or * x));
+  ar2 = Array.from(hz0.slice(0, ind).map((x) => orientation * x));
   var hz = ar1.concat(ar2);
 
   ar1 = Array.from(kappa0.slice(ind - 1, N ));
-  ar2 = Array.from(kappa0.slice(0, ind).map((x) => or * x));
+  ar2 = Array.from(kappa0.slice(0, ind).map((x) => orientation * x));
   var kappa = ar1.concat(ar2);
 
   // updated binormal 
@@ -318,22 +318,22 @@ var animationData = function(j) {
     
   }
   else {
-  let ar1 = Array.from(hx0.slice(ind2-1, N).map((x) => or * x));
+  let ar1 = Array.from(hx0.slice(ind2-1, N).map((x) => orientation * x));
   let ar2 = Array.from(hx0.slice(0, ind2));
 
   var hx = ar1.concat(ar2);
 
-   ar1 = Array.from(hy0.slice(ind2-1, N).map((x) => or * x));
+   ar1 = Array.from(hy0.slice(ind2-1, N).map((x) => orientation * x));
    ar2 = Array.from(hy0.slice(0, ind2));
 
   var hy = ar1.concat(ar2);
 
-   ar1 = Array.from(hz0.slice(ind2-1, N).map((x) => or * x));
+   ar1 = Array.from(hz0.slice(ind2-1, N).map((x) => orientation * x));
    ar2 = Array.from(hz0.slice(0, ind2));
 
   var hz = ar1.concat(ar2);
 
-  ar1 = Array.from(kappa0.slice(ind2-1, N).map((x) => or * x));
+  ar1 = Array.from(kappa0.slice(ind2-1, N).map((x) => orientation * x));
    ar2 = Array.from(kappa0.slice(0, ind2));
 
   var kappa = ar1.concat(ar2);
@@ -992,7 +992,7 @@ var getIndexFromLinspace = function (x) {
   let length = yData.length;
 
   if (x < start || x > end || length <= 1) {
-    return -1; // x is out of the range or invalid length
+    return -1; // x is out of the range orientation invalid length
   }
 
   var step = (end - start) / (length - 1);
@@ -1283,17 +1283,12 @@ var  createchartK = function(kappa) {
   if (chartK != null) {
     chartK.destroy();
   }
-  var kmin = Math.min(...kappa0);
-  var kmax = Math.max(...kappa0);
-
-  if (kmax > Math.abs(kmin)) {
-    var klim = Math.abs(kmax);
-  }
-  else {
-    var klim = Math.abs(kmin);
-  } 
+   
 
   var kappa_y = Array.from(kappa).concat();
+  
+  var kmin = Math.min(...kappa_y) -.01;
+  var kmax = Math.max(...kappa_y)+.01;
   //var kappa_x = linspace(1, kappa_y.length, kappa_y.length);
   var kappa_x = linspace(0, 1, kappa_y.length);
 
@@ -1339,8 +1334,8 @@ var  createchartK = function(kappa) {
           }
         },
         y: {
-          min: -1 * klim - 2,
-          max: klim + 2,
+          min: kmin,
+          max: kmax,
           type: "linear",
           position: "left",
           ticks: {
@@ -1431,3 +1426,9 @@ var  createchartK = function(kappa) {
   chartK.update(); // Update the chartK to display the added datasets
 
 }
+
+
+
+/// sliders 
+
+ 

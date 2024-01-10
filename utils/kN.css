@@ -354,6 +354,7 @@ body {
     background-color:#555;
     border:none;
     color:#fff;
+    left:1%;
     height:40px;
     margin:10px 0;
     text-align:center;
@@ -463,7 +464,7 @@ body {
   content:"";
   position:absolute;
   top:-2px;
-  left:-2px;
+  left:0px;
   z-index:-1;
   width:calc(100% + 4px);
   height:calc(100% + 4px);
@@ -507,66 +508,7 @@ body {
     }
 
 
-
-  /* energy slider css  */
-  .energySlider {
-    position: absolute;
-    left:10%;
-    top:0%;
-    z-index: 3000;
-    
-    /* Initial CSS - will be updated by JavaScript */
-}
-     
-
-
-/* Hide the slider by default */
-.energySlider {
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-/* Show the slider when hovering over it */
-.energySlider:hover {
-  opacity: 1;
-}
-/* * Change the color of the portion of the slider that is dragged over */ */
-/* WebKit Browsers */
-.energySlider::-webkit-slider-thumb {
-  
-  background: rgb(112, 204, 144);
-  width: 20px; /* Width of the rectangle */
-  height: 20px; /* Height of the rectangle */
-   border-radius: 5px; /* Adjust for rounded corners */
-   cursor: pointer;
-  /* Other styling */
-}
-
-.energySlider::-webkit-slider-runnable-track {
-  -webkit-appearance: none;
-  background: rgb(168, 190, 135);
-  /* Other styling */
-}
-
-/* Mozilla Browsers */
-.energySlider::-moz-range-thumb {
-  background: rgb(101, 162, 58);
-  /* Other styling */
-}
-
-.energySlider::-moz-range-progress {
-  background: rgb(162, 192, 117);
-  /* Other styling */
-}
  
-
-.energySlider::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  background: rgb(111, 208, 155);
-  border-radius: 5px;
-  cursor: pointer;
-}
 
  
 /* /////////////
@@ -607,7 +549,7 @@ body {
 
 @media (orientation: landscape) {
   .contentE {
-    height: 60vh; /* Adjust height for landscape mode */
+    height: 0vh; /* Adjust height for landscape mode */
   }
 }
 
@@ -642,14 +584,14 @@ body {
  
 
 svg {
-  width: 80%; /* Or another appropriate percentage */
+  width: 100%; /* Or another appropriate percentage */
   height: auto; /* Maintain the aspect ratio */
   /* Adjust margin-top or other properties as needed */
 }
 
 @media (max-width: 600px) {
   svg {
-    width: 80%; /* Larger percentage for smaller screens */
+    width: 100%; /* Larger percentage for smaller screens */
     height:auto; /* Larger percentage for smaller screens */
     /* Further adjustments as needed */
   }
@@ -658,55 +600,102 @@ svg {
 
 /* 
 /* css for html sliders for bates */
+ 
+ 
 
- .inputBox
-{
-  position: relative;
-  width: 40%;
-  left: 20%
-}
- .inputBox input 
-{
-  position: relative;
+/* html sliders  */
+
+.slider-container {
+  margin-top: 10px ;
+  left:0;
+  margin-bottom: 20px; /* Adjust the gap between sliders */
+  opacity: 1;
+  transition:opacity 1s;
   width: 100%;
-  background: #333;
-  border: none;
-  outline: none;
-  padding: 25px 10px 7.5px;
-  border-radius: 4px;
-  color: #fff;
-  font-weight: 500;
-  font-size: 1em;
 }
- .inputBox i 
-{
-  position: absolute;
-  left: 50%;
-  padding: 15px 10px;
-  font-style: normal;
-  color: #aaa;
-  transition: 0.5s;
-  pointer-events: none;
+.slider-container input[type="range"] {
+  width: 100%; /* Make sliders take full width */
+  /* If there's default browser styling causing issues, you might need to reset it */
 }
-  .inputBox input:focus ~ i,
-  .inputBox input:valid ~ i
-{
-  transform: translateY(-7.5px);
-  font-size: 0.8em;
-  color: #fff;
+.slider-container span {
+  left:0;
+  display: block;
+  text-align: center;
+  margin-bottom: 5px;
+  opacity:0;
+}
+
+#m_slider,#n_slider,#alpha_slider{
+  opacity:0;
+  transition: opacity 1s;
+}
+
+.leftbar:hover .slider-container, .leftbar:hover #m_slider, .leftbar:hover #n_slider, .leftbar:hover #alpha_slider,.leftbar:hover span {
+  opacity:1;
+  transition:opacity 1s
+  }
+
+  /* slider appearance  */
+
+ 
+
+/* Style for the track */
+input[type='range']::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background: #555; /* Color for the part of the track filled by the thumb */
+  /* Additional styling for the track */
 }
  
-  .inputBox input[type="number"]
-{
-  padding: 10px;
-  background: rgb(77, 89, 77);
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 1.35em;
-  letter-spacing: 0.05em;
-  cursor: pointer;
+
+input[type='range']::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 0;
 }
-input[type="number"]:active
-{
-  opacity: 0.6;
-} */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #fff; /* Your desired background color */
+  height: 20px; /* Adjust the height as needed */
+  width: 20px; /* Adjust the width as needed */
+  border-radius: 0; /* Adjust for square shape */
+}
+
+/* For the remaining part of the track (not filled by the thumb) */
+input[type='range']::-moz-range-track {
+  background: #ddd; /* Different color, if needed */
+  /* Additional styling */
+}
+
+input[type='range']::-moz-range-progress {
+  background: #555; /* Color for the part of the track filled by the thumb in Firefox */
+}
+
+/* IE-specific styles */
+input[type='range']::-ms-fill-lower {
+  background: #555; /* Color for the part of the track filled by the thumb in IE */
+}
+
+input[type='range']::-ms-fill-upper {
+  background: #ddd; /* Color for the remaining part of the track in IE */
+}
+
+
+/* small screen adjustment */
+
+/* Adjust slider size and layout for medium screens */
+@media (max-width: 768px) {
+  .slider-container input[type="range"] {
+    width: 95%; /* Slightly larger width for medium screens */
+    /* Other adjustments as needed */
+  }
+}
+
+/* Adjust slider size and layout for small screens */
+@media (max-width: 480px) {
+  .slider-container input[type="range"] {
+    width: 100%; /* Full width for small screens */
+    /* Additional adjustments for small screens, like height, padding, etc. */
+  }
+}
