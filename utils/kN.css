@@ -625,12 +625,12 @@ svg {
   opacity:0;
 }
 
-#m_slider,#n_slider,#alpha_slider{
+#m_slider,#n_slider,#alpha_slider, #speedSlider,#hingeLengthSlider{
   opacity:0;
   transition: opacity 1s;
 }
 
-.leftbar:hover .slider-container, .leftbar:hover #m_slider, .leftbar:hover #n_slider, .leftbar:hover #alpha_slider,.leftbar:hover span {
+.leftbar:hover .slider-container, .leftbar:hover #m_slider, .leftbar:hover #n_slider, .leftbar:hover #alpha_slider,.leftbar:hover span, .leftbar:hover #speedSlider, .leftbar:hover #hingeLengthSlider {
   opacity:1;
   transition:opacity 1s
   }

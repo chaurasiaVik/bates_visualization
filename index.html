@@ -55,37 +55,37 @@
 
 
     <br>
-    <g  class = "textElement" >
+    <g class="textElement">
       <text> parameters </text>
     </g>
-      <br>
+    <br>
     <!-- // m value  -->
- 
-            <!-- m value -->
-            <div class="slider-container">
-                <span id="m_value">1</span>
-                <input class = "m_slider" type="range" id="m_slider" min="1" max="6" value="1" step="1">
-            </div>
-            <!-- n value -->
-            <div class="slider-container">
-                <span id="n_value">7</span>
-                <input type="range" id="n_slider" min="-10" max="-3" value="7" step="1">
-            </div>
-            <!-- alpha value -->
-            <div class="slider-container">
-                <span id="alpha_value">0.25</span>
-                <input type="range" id="alpha_slider" min="0" max="1" value="0.25" step="0.005">
-            </div>
-        
+
+    <!-- m value -->
+    <div class="slider-container">
+      <span id="m_value">1</span>
+      <input class="m_slider" type="range" id="m_slider" min="1" max="6" value="1" step="1">
+    </div>
+    <!-- n value -->
+    <div class="slider-container">
+      <span id="n_value">7</span>
+      <input type="range" id="n_slider" min="-10" max="-3" value="7" step="1">
+    </div>
+    <!-- alpha value -->
+    <div class="slider-container">
+      <span id="alpha_value">0.25</span>
+      <input type="range" id="alpha_slider" min="0" max="1" value="0.25" step="0.005">
+    </div>
+
     <!-- <div class="inputBox">
       <input type="number" id="alpha_form" min="0" max="1" value="0.25" step="0.005">
     </div> -->
 
     <br>
-    <g   class = "textElement">
+    <g class="textElement">
       <text> play/pause </text>
     </g>
-      
+
     <svg id='playSVG' width='200' height='50' viewBox='-60 -60 120 120' style='margin-top:10px'>
       <g class='touchElement glow-effect' id='buttPlayPause'>
         <title> click to play the everting motion</title>
@@ -114,13 +114,13 @@
       </defs>
     </svg>
 
-    <g  class = "textElement">
+    <g class="textElement">
       <text> speed </text>
     </g>
     <div class="slider-container">
       <span id="speed_value">1</span>
-      <input   type="range" id="speedSlider" min="0" max="50" value="1" step=".2">
-  </div>
+      <input type="range" id="speedSlider" min="0" max="50" value="1" step=".2">
+    </div>
 
     <!-- <svg id='speedSlider' class='slider glow-effect' width='200' height='100' viewBox='-100 -25 200 50'>
       <title> slide to change the speed of eversion</title>
@@ -128,14 +128,14 @@
       <rect width='38' height='38' x='-19' y='-19' />
       <text x='-100' y='-25'></text>
     </svg> -->
-    <g  class = "textElement" >
+    <g class="textElement">
       <text> width </text>
     </g>
 
     <div class="slider-container">
       <span id="hinge_value">1</span>
-      <input   type="range" id="hingeLengthSlider" min="0" max="30" value="1" step=".1">
-  </div>
+      <input type="range" id="hingeLengthSlider" min="0" max="30" value="1" step=".1">
+    </div>
     <!-- <svg id='hingeLengthSlider' class='slider glow-effect' width='200' height='100' viewBox='-100 -25 200 50'>
       <title> slide to change the width of the band</title>
       <polygon fill='#555' points='-100 -20 -100 20 100 20 100 -20' />
@@ -145,29 +145,29 @@
 
   </div>
 
-   <div class='rightbar'>  
+  <div class='rightbar'>
     <!-- <button class='button' id='buttFullScreen' title='enable full screen'> full screen </button>
      -->
-     <button class='button' id="buttShowKappa"
-     title='curvature of the midline. the rainbow color corresponds to the arclength. the n red dots are evenly spaced points on the band with n half twists'>
-     midline curvature</button>
-     <button class='button' id='buttShowMid' title='path traced by a point on the midline
+    <button class='button' id="buttShowKappa"
+      title='curvature of the midline. the rainbow color corresponds to the arclength. the n red dots are evenly spaced points on the band with n half twists'>
+      midline curvature</button>
+    <button class='button' id='buttShowMid' title='path traced by a point on the midline
      of the band  during the everting motion'> eversion path </button>
-     <button class='button' id='buttShowUnit' title='show 1/n th of the band with n half twists '> show unit </button>
+    <button class='button' id='buttShowUnit' title='show 1/n th of the band with n half twists '> show unit </button>
     <!-- <button class='button' id='buttShowAxis'> show axis </button> -->
-    
+
     <!-- <g class="textElement">
 
       <text> physics </text>
     </g> -->
-<!-- 
+    <!-- 
     <button class='button' id="buttShowEnergy"
       title='dimensionless torsion of the midline versus dimensionless bending energy of the stable bands. click on the plot to change the torsion'>
       bending energy</button> -->
-   
+
 
     <br>
-    
+
     <g class="textElement">
 
       <text> colors </text>
@@ -184,7 +184,7 @@
     <input type="color" id="colorPicker" style="display: none;">
 
     <!-- <input class="jscolor" value="ab2567" data-jscolor="{format:'rgba', position:'right', width:181, height:101}"> -->
-     
+
     <br>
     <g class="textElement">
       <text> view angle </text>
@@ -229,7 +229,6 @@
 
   <script>
 
-    colEnergy = colEnergy.map(rgb => rgb.map(val => Math.round(val * 255)));
     var contentE = document.querySelector('.contentE');
     var content = document.querySelector('.content');
     var contentK = document.querySelector('.contentK');
@@ -240,10 +239,6 @@
     var nu_i;
     var plotClicked;
 
-
-    var yData = Array.from(energy).concat();
-    var len_ydata = yData.length;
-    var xData = linspace(8.095, 85.4, len_ydata);
 
 
     'use strict';
@@ -259,7 +254,7 @@
     document.addEventListener('DOMContentLoaded', function () {
 
 
-      const elements = document.querySelectorAll('.leftbar .touchElement, .leftbar .slider, .rightbar .touchElement, .rightbar .slider, .leftbar .button, .rightbar .button, .leftbar .textElement, .rightbar .textElement, .leftbar #m_slider, .leftbar #n_slider, .leftbar #alpha_slider, .leftbar span'  );
+      const elements = document.querySelectorAll('.leftbar .touchElement, .leftbar .slider, .rightbar .touchElement, .rightbar .slider, .leftbar .button, .rightbar .button, .leftbar .textElement, .rightbar .textElement, .leftbar #m_slider, .leftbar #n_slider, .leftbar #alpha_slider, .leftbar span, .leftbar #speedSlider, .leftbar #hingeLengthSlider');
       elements.forEach(el => el.classList.add('default-visible'));
 
       setTimeout(() => {
@@ -271,51 +266,51 @@
 
     window.addEventListener('DOMContentLoaded', function () {
 
- 
+
       const mSlider = ebID("m_slider");
-       const nSlider = ebID('n_slider');
-       const alphaSlider = ebID('alpha_slider');
-       const speedSlider = ebID('speedSlider');
-       const hingeSlider = ebID('hingeLengthSlider');
+      const nSlider = ebID('n_slider');
+      const alphaSlider = ebID('alpha_slider');
+      const speedSlider = ebID('speedSlider');
+      const hingeSlider = ebID('hingeLengthSlider');
       //const alphaForm = ebID('alpha_form');
 
 
-      mSlider.oninput = function() {
-    ebID('m_value').textContent =  "m = " + this.value.toString();
-}
+      mSlider.oninput = function () {
+        ebID('m_value').textContent = "m = " + this.value.toString();
+      }
 
-nSlider.oninput = function() {
-    ebID('n_value').textContent = "n = "  + this.value.toString();
-}
+      nSlider.oninput = function () {
+        ebID('n_value').textContent = "n = " + this.value.toString();
+      }
 
-alphaSlider.oninput = function() {
-    ebID('alpha_value').innerHTML ="\u03B1 = " + parseFloat(this.value).toFixed(4).toString()  + "&pi;" ;
-}
+      alphaSlider.oninput = function () {
+        ebID('alpha_value').innerHTML = "\u03B1 = " + parseFloat(this.value).toFixed(4).toString() + "&pi;";
+      }
 
-speedSlider.oninput = function() {
-    ebID('speed_value').innerHTML = parseFloat(this.value/50).toFixed(2).toString()  ;
-}
-hingeSlider.oninput = function() {
-    ebID('hinge_value').innerHTML = parseFloat(this.value/30).toFixed(2).toString()  ;
-}
- 
+      speedSlider.oninput = function () {
+        ebID('speed_value').innerHTML = parseFloat(this.value / 50).toFixed(2).toString();
+      }
+      hingeSlider.oninput = function () {
+        ebID('hinge_value').innerHTML = parseFloat(this.value / 30).toFixed(2).toString();
+      }
 
-// Initialize values
-ebID('m_value').textContent = "m = " + mSlider.value.toString();
-ebID('n_value').textContent = "n = " + nSlider.value.toString();
-ebID('alpha_value').innerHTML = "\u03B1 = " + parseFloat(0.2314598521523062).toFixed(4).toString()  + "&pi;" ;
 
-ebID('speed_value').innerHTML = parseFloat(speedSlider.value/50).toFixed(2).toString()  ;
-ebID('hinge_value').innerHTML = parseFloat(hingeSlider.value/50).toFixed(2).toString()  ;;
+      // Initialize values
+      ebID('m_value').textContent = "m = " + mSlider.value.toString();
+      ebID('n_value').textContent = "n = " + nSlider.value.toString();
+      ebID('alpha_value').innerHTML = "\u03B1 = " + parseFloat(0.2314598521523062).toFixed(4).toString() + "&pi;";
+
+      ebID('speed_value').innerHTML = parseFloat(speedSlider.value / 50).toFixed(2).toString();
+      ebID('hinge_value').innerHTML = parseFloat(hingeSlider.value / 50).toFixed(2).toString();;
 
 
       // initialize the slider values 
       mSlider.value = 1;
- 
+
       updateNRange(mSlider.value);
 
       nSlider.value = -3;
-       alphaSlider.value = 1 / 4;
+      alphaSlider.value = 1 / 4;
       //alphaForm.value = 1 / 4;
 
       var m1 = mSlider.value;
@@ -347,16 +342,16 @@ ebID('hinge_value').innerHTML = parseFloat(hingeSlider.value/50).toFixed(2).toSt
         let rangeMax = -value - 1;
         nSlider.min = rangeMin;
         nSlider.max = rangeMax;
-        
+
         n1 = Math.round((rangeMin + rangeMax) / 2);
         nSlider.value = n1;
- 
+
       }
       function updateAlphaRange(value) {
         // Update the range of n_slider and n_form based on the value
         // This example sets the min and max to be -value and value respectively
         // implementing  the closure condition abs(n)>abs(m)/2
-         let temp = Math.acos(-value - Math.sqrt(value * value - 1)) / Math.PI
+        let temp = Math.acos(-value - Math.sqrt(value * value - 1)) / Math.PI
         let rangeMin = temp * .02;
         let rangeMax = temp;
         alphaSlider.min = rangeMin;
@@ -380,7 +375,7 @@ ebID('hinge_value').innerHTML = parseFloat(hingeSlider.value/50).toFixed(2).toSt
 
 
       mSlider.addEventListener('input', function () {
-         updateNRange(mSlider.value);
+        updateNRange(mSlider.value);
 
         m1 = mSlider.value;
         updateAlphaRange(n1 / m1);
@@ -389,19 +384,19 @@ ebID('hinge_value').innerHTML = parseFloat(hingeSlider.value/50).toFixed(2).toSt
         document.body.dispatchEvent(nChanged);
       });
 
-      
+
 
       nSlider.addEventListener('input', function () {
-         n1 = nSlider.value;
+        n1 = nSlider.value;
         updateAlphaRange(n1 / m1);
 
         document.body.dispatchEvent(nChanged);
 
       });
 
-      
-       
-  
+
+
+
 
       alphaSlider.addEventListener('input', function () {
         //syncValues(alphaSlider, alphaForm);
@@ -1033,25 +1028,25 @@ ebID('hinge_value').innerHTML = parseFloat(hingeSlider.value/50).toFixed(2).toSt
         // });
 
         speedSlider.addEventListener('input', function () {
-          
-        speedy = speedSlider.value/ 2000 / n ** .2;;
-         
-      });
-      
+
+          speedy = speedSlider.value / 2000 / n ** .2;;
+
+        });
+
         hingeSlider.addEventListener('input', function () {
-          
-          hl = hingeSlider.value/50;
-        if (!play) updateBandMesh(k, hl);
+
+          hl = hingeSlider.value / 50;
+          if (!play) updateBandMesh(k, hl);
           // if (showCorn) {
           //   meshDispose(tubeCorn);
           //   createTube(tubeCorn,1,hl,white);
           // }
           refresh = true;
-         
-      });
+
+        });
 
         // change width/length ////////////////////////////////////////////////////////////
- 
+
 
         // ///  modifying sliders during the guiding tour 
         // ebID('speedSlider').addEventListener('tourSpeed', function () {
@@ -1245,7 +1240,7 @@ ebID('hinge_value').innerHTML = parseFloat(hingeSlider.value/50).toFixed(2).toSt
         var showEversionPath = false;
 
 
- 
+
         // energy changed during the tour
 
 
@@ -1359,9 +1354,9 @@ ebID('hinge_value').innerHTML = parseFloat(hingeSlider.value/50).toFixed(2).toSt
         //   }
         // });
 
-       
 
- 
+
+
 
         ////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////
