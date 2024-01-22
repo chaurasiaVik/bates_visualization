@@ -153,6 +153,78 @@ function Slider ( id, min, max, init, prefix, digits, suffix ) {
   this.setValue = function(va) { val = va; }
   this.setMax = function(max) { maxi = max; }
 }
+
+
+function Slider2 ( id, min, max, init, prefix, digits, suffix ) {
+  var slider = ebID(id);
+  var val;
+  var maxi = max;
+  var pt = slider.createSVGPoint();
+  function cursorPoint(ev){
+    
+    return 
+  }
+  var dragging = false;
+  slider.addEventListener('mousedown',startDragMouse,false);
+  slider.addEventListener('touchstart',startDragTouch,false);
+  document.body.addEventListener('mousemove',dragMouse,false);
+  document.body.addEventListener('touchmove',dragTouch,false);
+  window.addEventListener('mouseup',stopDrag,false);
+  window.addEventListener('touchend',stopDrag,false);
+  function startDragMouse(ev) {
+    dragging = true;
+    dragMouse(ev);
+    slider.style.opacity = 1;
+  }
+  function startDragTouch(ev) {
+    dragging = true;
+    dragTouch(ev);
+    slider.style.opacity = 1;
+  }
+  function dragMouse(ev) {
+    if(dragging) {
+      pt.x = ev.clientX;
+      pt.y = ev.clientY;
+      var loc = pt.matrixTransform(slider.getScreenCTM().inverse());
+      var x = Math.min(Math.max(loc.x,-80),80);
+      update(x);
+      slider.dispatchEvent(sliderEvent);
+    }
+  }
+  function dragTouch(ev) {
+    if(dragging) {
+      pt.x = ev.touches[0].clientX;
+      pt.y = ev.touches[0].clientY;
+      var loc = pt.matrixTransform(slider.getScreenCTM().inverse());
+      var x = Math.min(Math.max(loc.x,-80),80);
+      update(x);
+      slider.dispatchEvent(sliderEvent);
+    }
+  }
+  function stopDrag() {
+    dragging = false;
+    slider.style.opacity = '';
+  }
+  function update(x) {
+    val = min + (x+80)/160*(maxi-min);
+    
+    if(id=='nuSlider'){
+    val = Math.round(val); // Round val to the nearest integer
+    };
+    let temp = ((max-min)/100+min)/Math.PI;
+    
+    slider.getElementsByTagName('rect')[0].setAttribute('x',x-19);
+    //slider.getElementsByTagName('text')[0].innerHTML = "\u03B1 = " + temp.toFixed(4).toString() + "&pi;"
+
+  }
+  update((init-min)/(maxi-min)*160-80); // initial
+  this.getValue = function() { return val; }
+  this.setValue = function(va) { val = va; }
+  this.setMax = function(max) { maxi = max; }
+}
+
+ 
+
 ///////////////////////////////////////////////////////////////////////////////
 var t;
 function test(scene)

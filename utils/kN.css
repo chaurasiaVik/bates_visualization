@@ -53,22 +53,24 @@ body {
     padding-right: 2px;
     box-sizing: border-box;
   }
-   .rightbar {
-     text-align: center;
+  .rightbar {
+    text-align: center;
     font-family: Monospace;
     position: fixed;
-    width: 12.2%;
+    width: 12.3%;
     height: 100%;
     background: none;
     transition: width .9s;
-    display: flex;
-    flex-direction: column;
+     flex-direction: column;
+    justify-content: center; /* Centers items vertically */
+    align-items: center; /* Centers items horizontally */
     overflow-y: auto; /* Enable vertical scrolling */
-    overflow-x:hidden;
+    overflow-x: hidden;
     z-index: 1000;
     padding-right: 2px;
     box-sizing: border-box;
-  }
+}
+
   
   ::-webkit-scrollbar {
     width:  15px;
@@ -204,15 +206,27 @@ body {
   transition:opacity 1s
   }
   
-  #buttNumOfTetMinus:hover ~ #infoTet {
+  #buttNumOfTetMinus:hover ~ #info_m {
   opacity:1
   }
   
-  #buttNumOfTetPlus:hover ~ #infoTet {
+  #buttNumOfTetPlus:hover ~ #info_m {
   opacity:1
   }
   
-  .tetSwitch,#infoTet {
+  .tetSwitch,#info_m {
+  fill:#fff;
+  opacity:.7
+  }
+  #buttNumOfTetMinus:hover ~ #info_n {
+  opacity:1
+  }
+  
+  #buttNumOfTetPlus:hover ~ #info_n {
+  opacity:1
+  }
+  
+  .tetSwitch,#info_n {
   fill:#fff;
   opacity:.7
   }
@@ -228,8 +242,8 @@ body {
   text-anchor:middle
   }
   
-  #infoNumOfTet {
-  font-size:32px
+  #infoNumOf_n,#infoNumOf_m {
+  font-size:1.5vh
   }
  
   
@@ -349,27 +363,7 @@ body {
   z-index:10;
   pointer-events:none
   }
-  
-  .button {
-    background-color:#555;
-    border:none;
-    color:#fff;
-    left:1%;
-    height:40px;
-    margin:10px 0;
-    text-align:center;
-    text-decoration:none;
-    display:inline-block;
-    font-size:16px;
-    font-family:Monospace;
-    outline:none;
-    width:180px;
-    position:relative;
-    cursor:pointer;
-    border-radius:12px;
-    opacity:.7;
-    transition:opacity .5s
-    }
+   
   
   .leftbar:hover .button,.rightbar:hover .button {
   opacity:1
@@ -385,8 +379,8 @@ body {
   height:calc(100% + 4px);
   background:linear-gradient(45deg,red,#FF7300,#FFFB00,#48FF00,#00FFD5,#002BFF,#FF00C8,red);
   background-size:400%;
-  border-radius:14px;
-  filter:blur(8px);
+  border-radius:8px;
+  filter:blur(5px);
   animation:glowing 20s linear infinite;
   opacity:0;
   transition:opacity .3s ease-in-out
@@ -402,7 +396,7 @@ body {
   }
   
   50% {
-  background-position:400% 0
+  background-position:300% 0
   }
   
   100% {
@@ -445,8 +439,9 @@ body {
   cursor:pointer;
   border-radius:12px;
   opacity:.7;
-  transition:opacity .5s
-  }
+  transition:opacity .5s;
+  margin-left:auto;
+   }
   
   .leftbar:hover .button,.rightbar:hover .button {
   opacity:1
@@ -464,7 +459,7 @@ body {
   content:"";
   position:absolute;
   top:-2px;
-  left:0px;
+  left:-2px;
   z-index:-1;
   width:calc(100% + 4px);
   height:calc(100% + 4px);
@@ -507,9 +502,7 @@ body {
     transition:opacity 1s
     }
 
-
  
-
  
 /* /////////////
 /////////////
@@ -547,11 +540,6 @@ body {
 
 
 
-@media (orientation: landscape) {
-  .contentE {
-    height: 0vh; /* Adjust height for landscape mode */
-  }
-}
 
 @media (max-width: 768px) {
   .contentE {
@@ -584,118 +572,42 @@ body {
  
 
 svg {
-  width: 100%; /* Or another appropriate percentage */
+  width: 90%; /* Or another appropriate percentage */
   height: auto; /* Maintain the aspect ratio */
+
   /* Adjust margin-top or other properties as needed */
 }
 
+svg text{
+  font-size:  1.5vh;
+  ;
+}
 @media (max-width: 600px) {
   svg {
-    width: 100%; /* Larger percentage for smaller screens */
+    width: 80%; /* Larger percentage for smaller screens */
     height:auto; /* Larger percentage for smaller screens */
     /* Further adjustments as needed */
   }
-}
-
-
-/* 
-/* css for html sliders for bates */
- 
- 
-
-/* html sliders  */
-
-.slider-container {
-  margin-top: 10px ;
-  left:0;
-  margin-bottom: 20px; /* Adjust the gap between sliders */
-  opacity: 1;
-  transition:opacity 1s;
-  width: 100%;
-}
-.slider-container input[type="range"] {
-  width: 100%; /* Make sliders take full width */
-  /* If there's default browser styling causing issues, you might need to reset it */
-}
-.slider-container span {
-  left:0;
-  display: block;
-  text-align: center;
-  margin-bottom: 5px;
-  opacity:0;
-}
-
-#m_slider,#n_slider,#alpha_slider, #speedSlider,#hingeLengthSlider{
-  opacity:0;
-  transition: opacity 1s;
-}
-
-.leftbar:hover .slider-container, .leftbar:hover #m_slider, .leftbar:hover #n_slider, .leftbar:hover #alpha_slider,.leftbar:hover span, .leftbar:hover #speedSlider, .leftbar:hover #hingeLengthSlider {
-  opacity:1;
-  transition:opacity 1s
+  svg text{
+    font-size:15px;
   }
-
-  /* slider appearance  */
-
- 
-
-/* Style for the track */
-input[type='range']::-webkit-slider-runnable-track {
-  -webkit-appearance: none;
-  background: #555; /* Color for the part of the track filled by the thumb */
-  /* Additional styling for the track */
+  #infoNumOf_n,#infoNumOf_m {
+    font-size:15px !important;
+    }
+   
 }
- 
-
-input[type='range']::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  background: white;
-  border-radius: 0;
-}
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  background: #fff; /* Your desired background color */
-  height: 20px; /* Adjust the height as needed */
-  width: 20px; /* Adjust the width as needed */
-  border-radius: 0; /* Adjust for square shape */
-}
-
-/* For the remaining part of the track (not filled by the thumb) */
-input[type='range']::-moz-range-track {
-  background: #ddd; /* Different color, if needed */
-  /* Additional styling */
-}
-
-input[type='range']::-moz-range-progress {
-  background: #555; /* Color for the part of the track filled by the thumb in Firefox */
-}
-
-/* IE-specific styles */
-input[type='range']::-ms-fill-lower {
-  background: #555; /* Color for the part of the track filled by the thumb in IE */
-}
-
-input[type='range']::-ms-fill-upper {
-  background: #ddd; /* Color for the remaining part of the track in IE */
-}
-
-
-/* small screen adjustment */
-
-/* Adjust slider size and layout for medium screens */
-@media (max-width: 768px) {
-  .slider-container input[type="range"] {
-    width: 95%; /* Slightly larger width for medium screens */
-    /* Other adjustments as needed */
+@media (max-height: 800px) {
+  svg {
+    width: 80%; /* Larger percentage for smaller screens */
+    height:auto; /* Larger percentage for smaller screens */
+    /* Further adjustments as needed */
   }
-}
-
-/* Adjust slider size and layout for small screens */
-@media (max-width: 480px) {
-  .slider-container input[type="range"] {
-    width: 100%; /* Full width for small screens */
-    /* Additional adjustments for small screens, like height, padding, etc. */
+  svg text{
+    font-size:20px;
   }
+  #infoNumOf_n,#infoNumOf_m {
+    font-size:20px !important;
+    }
+   
 }
+ 
