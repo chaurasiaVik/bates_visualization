@@ -112,7 +112,7 @@ body {
   
   .contentK {
     top: 10%;
-    left: 12%;
+    left: 14%;
     width: 30vw; /* Use viewport width for responsiveness */
     height: 18.54vh; /* Use viewport height for responsiveness */
   }
@@ -198,6 +198,7 @@ body {
   fill:#fff;
   font-family:Monospace;
   font-size:16px;
+  color:red;
   opacity:0
   }
   
@@ -206,27 +207,22 @@ body {
   transition:opacity 1s
   }
   
-  #buttNumOfTetMinus:hover ~ #info_m {
+  #buttNumOf_m_Minus:hover ~ #info_m {
   opacity:1
   }
   
-  #buttNumOfTetPlus:hover ~ #info_m {
+  #buttNumOf_m_Plus:hover ~ #info_m {
+  opacity:1
+  }
+  #buttNumOf_n_Minus:hover ~ #info_n {
   opacity:1
   }
   
-  .tetSwitch,#info_m {
-  fill:#fff;
-  opacity:.7
-  }
-  #buttNumOfTetMinus:hover ~ #info_n {
+  #buttNumOf_n_Plus:hover ~ #info_n {
   opacity:1
   }
   
-  #buttNumOfTetPlus:hover ~ #info_n {
-  opacity:1
-  }
-  
-  .tetSwitch,#info_n {
+  .tetSwitch,#info_m,#info_n {
   fill:#fff;
   opacity:.7
   }
@@ -237,13 +233,13 @@ body {
   stroke:#111
   }
   
-  #infoTet {
+  #info_m,#info_n {
   font-family:Monospace;
   text-anchor:middle
   }
   
-  #infoNumOf_n,#infoNumOf_m {
-  font-size:1.5vh
+  #infoNumOf_m,#infoNumOf_n {
+  font-size:20px
   }
  
   
@@ -502,7 +498,68 @@ body {
     transition:opacity 1s
     }
 
+
+
+  /* energy slider css  */
+  .energySlider {
+    position: absolute;
+    left:10%;
+    top:0%;
+    z-index: 3000;
+    
+    /* Initial CSS - will be updated by JavaScript */
+}
+     
+
+
+/* Hide the slider by default */
+.energySlider {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+/* Show the slider when hovering over it */
+.energySlider:hover {
+  opacity: 1;
+}
+/* * Change the color of the portion of the slider that is dragged over */ */
+/* WebKit Browsers */
+.energySlider::-webkit-slider-thumb {
+  
+  background: rgb(112, 204, 144);
+  width: 20px; /* Width of the rectangle */
+  height: 20px; /* Height of the rectangle */
+   border-radius: 5px; /* Adjust for rounded corners */
+   cursor: pointer;
+  /* Other styling */
+}
+
+.energySlider::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background: rgb(168, 190, 135);
+  /* Other styling */
+}
+
+/* Mozilla Browsers */
+.energySlider::-moz-range-thumb {
+  background: rgb(101, 162, 58);
+  /* Other styling */
+}
+
+.energySlider::-moz-range-progress {
+  background: rgb(162, 192, 117);
+  /* Other styling */
+}
  
+
+.energySlider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: rgb(111, 208, 155);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
  
 /* /////////////
 /////////////
@@ -574,40 +631,72 @@ body {
 svg {
   width: 90%; /* Or another appropriate percentage */
   height: auto; /* Maintain the aspect ratio */
-
   /* Adjust margin-top or other properties as needed */
 }
 
-svg text{
-  font-size:  1.5vh;
-  ;
-}
 @media (max-width: 600px) {
   svg {
     width: 80%; /* Larger percentage for smaller screens */
     height:auto; /* Larger percentage for smaller screens */
     /* Further adjustments as needed */
   }
+}
+
+@media (orientation: landscape) and (max-width: 768px) {
+  .contentE {
+    height: 0px !important; /* Adjust height for landscape mode */
+  }
+  #renderCanvasE {
+    height: 0px !important;
+  }
+  #energySlider {
+    top: 5px !important;
+    opacity: 1 !important;
+  }
+}
+
+
+@media (max-width: 600px) {
+  
   svg text{
     font-size:15px;
   }
   #infoNumOf_n,#infoNumOf_m {
     font-size:15px !important;
     }
+    .textElement text {
+      
+      font-size:  12px !important;    
+      }
    
 }
 @media (max-height: 800px) {
-  svg {
-    width: 80%; /* Larger percentage for smaller screens */
-    height:auto; /* Larger percentage for smaller screens */
-    /* Further adjustments as needed */
-  }
+ 
   svg text{
-    font-size:20px;
+    font-size:3vh;
   }
   #infoNumOf_n,#infoNumOf_m {
-    font-size:20px !important;
+    font-size:22px !important;
     }
+    .textElement text {
+      
+      font-size:  3vh  !important;   
+      }
+   
    
 }
  
+
+/* Styles for smaller screens */
+@media screen and (max-width: 700px) {
+  svg {
+    width: 150px; /* Minimum width for small screens */
+    height: 67.5px; /* Adjust the height proportionally */
+  }
+}
+@media screen and (max-height: 700px) {
+  svg {
+    width: 150px; /* Minimum width for small screens */
+    height: 67.5px; /* Adjust the height proportionally */
+  }
+}

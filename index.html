@@ -54,36 +54,36 @@
 
 
     <g class="textElement">
-
-      <text class="textElement" style="color: brown; font-size: 1.5vh;"> parameters </text>
+    <text  > parameters </text>
     </g>
-
-
-    <svg width='200' height='90' viewBox='-100 -55 200 90' style='margin-top:1px'>
+ 
+    <svg width='200' height='100' viewBox='-100 -55 200 100' style='margin-top:1px'>
       <g class='touchElement glow-effect' id='buttNumOf_m_Minus'>
         <title>decrease m</title>
-        <circle cx='-62' cy='10' r='24' /> <!-- Modified cy here -->
+        <circle cx='-62' cy='10' r='28' /> <!-- Modified cy here -->
         <polygon points='-80 7 -80 13 -44 13 -44 7' fill='#fff' /> <!-- Adjusted y values in points -->
       </g>
       <g class='touchElement glow-effect' id='buttNumOf_m_Plus'>
         <title>increase m</title>
-        <circle cx='62' cy='10' r='24' /> <!-- Modified cy here -->
+        <circle cx='62' cy='10' r='28' /> <!-- Modified cy here -->
         <polygon points='80 7 80 13 65 13 65 28 59 28 59 13 44 13 44 7 59 7 59 -8 65 -8 65 7' fill='#fff' />
         <!-- Adjusted y values in points -->
       </g>
-      <g class="textElement" id='info_m'>
+    
+      <g class="textElement" >
+        
         <text id='infoNumOf_m' y='16'> m=1</text>
       </g>
     </svg>
-    <svg width='200' height='90' viewBox='-100 -55 200 90' style='margin-top:1px'>
+    <svg width='200' height='100' viewBox='-100 -55 200 100' style='margin-top:1px'>
       <g class='touchElement glow-effect' id='buttNumOf_n_Minus'>
         <title>decrease n</title>
-        <circle cx='-62' cy='10' r='24' /> <!-- Modified cy here -->
+        <circle cx='-62' cy='10' r='28' /> <!-- Modified cy here -->
         <polygon points='-80 7 -80 13 -44 13 -44 7' fill='#fff' /> <!-- Adjusted y values in points -->
       </g>
       <g class='touchElement glow-effect' id='buttNumOf_n_Plus'>
         <title>increase n</title>
-        <circle cx='62' cy='10' r='24' /> <!-- Modified cy here -->
+        <circle cx='62' cy='10' r='28' /> <!-- Modified cy here -->
         <polygon points='80 7 80 13 65 13 65 28 59 28 59 13 44 13 44 7 59 7 59 -8 65 -8 65 7' fill='#fff' />
         <!-- Adjusted y values in points -->
       </g>
@@ -92,8 +92,9 @@
       </g>
     </svg>
      <br>
-    <svg id='alphaSlider' class='slider glow-effect' width='200' height='100' viewBox='-100 -25 200 50'>
-      <title> slide to change the speed of eversion</title>
+     <br>
+    <svg id='alphaSlider' class='slider glow-effect' width='200' height='124' viewBox='-100 -25 200 50'>
+      <title> slide to alpha value </title>
       <polygon fill='#555' points='-100 -20 -100 20 100 20 100 -20' />
       <rect width='38' height='38' x='-19' y='-19' />
       <text x='-50' y='-25'></text>
@@ -105,7 +106,7 @@
 
     <br>
     <g class="textElement">
-      <text class="textElement" style="color: brown; font-size: 1.5vh;"> play/pause </text>
+      <text class="textElement" > play/pause </text>
     </g>
 
     <svg id='playSVG' width='200' height='50' viewBox='-60 -60 120 120' style='margin-top:10px'>
@@ -136,27 +137,28 @@
       </defs>
     </svg>
 
+    <br>
     <g class="textElement">
-      <text class="textElement" style="color: brown; font-size: 1.5vh;"> speed </text>
+      <text class="textElement" > speed </text>
     </g>
 
 
-    <svg id='speedSlider' class='slider glow-effect' width='200' height='100' viewBox='-100 -25 200 50'>
+    <svg id='speedSlider' class='slider glow-effect' width='200' height='125' viewBox='-100 -25 200 50'>
       <title> slide to change the speed of eversion</title>
       <polygon fill='#555' points='-100 -20 -100 20 100 20 100 -20' />
       <rect width='38' height='38' x='-19' y='-19' />
-      <text x='-5' y='-25'></text>
+      <text x='-50' y='-25'></text>
     </svg>
     <g class="textElement">
-      <text class="textElement" style="color: brown; font-size: 1.5vh;"> width </text>
+      <text class="textElement" > width </text>
     </g>
 
     
-    <svg id='hingeLengthSlider' class='slider glow-effect' width='200' height='100' viewBox='-100 -25 200 50'>
+    <svg id='hingeLengthSlider' class='slider glow-effect' width='200' height='125' viewBox='-100 -25 200 50'>
       <title> slide to change the width of the band</title>
       <polygon fill='#555' points='-100 -20 -100 20 100 20 100 -20' />
       <rect width='38' height='38' x='-19' y='-19' />
-      <text x='-5' y='-25'></text>
+      <text x='-50' y='-25'></text>
     </svg>
 
   </div>
@@ -270,21 +272,20 @@
     document.addEventListener('DOMContentLoaded', function () {
 
 
-     
-      const elements = document.querySelectorAll('.leftbar .touchElement, .leftbar .slider, .rightbar .touchElement, .rightbar .slider, .leftbar .button, .rightbar .button, .leftbar .textElement, .rightbar .textElement');
-      elements.forEach(el => el.classList.add('default-visible'));
+const elements = document.querySelectorAll('.leftbar .touchElement, .leftbar .slider, .rightbar .touchElement, .rightbar .slider, .leftbar .button, .rightbar .button,   .rightbar .textElement');
+elements.forEach(el => el.classList.add('default-visible'));
 
-      setTimeout(() => {
-        elements.forEach(el => el.classList.remove('default-visible'));
-      }, 15000);
-    });
+setTimeout(() => {
+  elements.forEach(el => el.classList.remove('default-visible'));
+}, 15000);
+});
+
 
 
 
     window.addEventListener('DOMContentLoaded', function () {
 
-
-
+ 
       //const alphaForm = ebID('alpha_form');
 
 
