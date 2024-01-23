@@ -57,15 +57,15 @@
     <text  > parameters </text>
     </g>
  
-    <svg width='200' height='100' viewBox='-100 -55 200 100' style='margin-top:1px'>
+    <svg width='200' height='110' viewBox='-100 -55 200 110' style='margin-top:1px'>
       <g class='touchElement glow-effect' id='buttNumOf_m_Minus'>
         <title>decrease m</title>
-        <circle cx='-62' cy='10' r='28' /> <!-- Modified cy here -->
+        <circle cx='-62' cy='10' r='32' /> <!-- Modified cy here -->
         <polygon points='-80 7 -80 13 -44 13 -44 7' fill='#fff' /> <!-- Adjusted y values in points -->
       </g>
       <g class='touchElement glow-effect' id='buttNumOf_m_Plus'>
         <title>increase m</title>
-        <circle cx='62' cy='10' r='28' /> <!-- Modified cy here -->
+        <circle cx='62' cy='10' r='32' /> <!-- Modified cy here -->
         <polygon points='80 7 80 13 65 13 65 28 59 28 59 13 44 13 44 7 59 7 59 -8 65 -8 65 7' fill='#fff' />
         <!-- Adjusted y values in points -->
       </g>
@@ -75,15 +75,15 @@
         <text id='infoNumOf_m' y='16'> m=1</text>
       </g>
     </svg>
-    <svg width='200' height='100' viewBox='-100 -55 200 100' style='margin-top:1px'>
+    <svg width='200' height='110' viewBox='-100 -55 200 110' style='margin-top:1px'>
       <g class='touchElement glow-effect' id='buttNumOf_n_Minus'>
         <title>decrease n</title>
-        <circle cx='-62' cy='10' r='28' /> <!-- Modified cy here -->
+        <circle cx='-62' cy='10' r='32' /> <!-- Modified cy here -->
         <polygon points='-80 7 -80 13 -44 13 -44 7' fill='#fff' /> <!-- Adjusted y values in points -->
       </g>
       <g class='touchElement glow-effect' id='buttNumOf_n_Plus'>
         <title>increase n</title>
-        <circle cx='62' cy='10' r='28' /> <!-- Modified cy here -->
+        <circle cx='62' cy='10' r='32' /> <!-- Modified cy here -->
         <polygon points='80 7 80 13 65 13 65 28 59 28 59 13 44 13 44 7 59 7 59 -8 65 -8 65 7' fill='#fff' />
         <!-- Adjusted y values in points -->
       </g>
@@ -93,12 +93,14 @@
     </svg>
      <br>
      <br>
-    <svg id='alphaSlider' class='slider glow-effect' width='200' height='124' viewBox='-100 -25 200 50'>
+     <svg id='alphaSlider' class='slider glow-effect' width='200' height='124' viewBox='-100 -45 200 70'>
       <title> slide to alpha value </title>
-      <polygon fill='#555' points='-100 -20 -100 20 100 20 100 -20' />
-      <rect width='38' height='38' x='-19' y='-19' />
-      <text x='-50' y='-25'></text>
+      <text x='-50' y='-10' >alpha</text> <!-- Position the text on top -->
+      <polygon fill='#555' points='-100 0 -100 40 100 40 100 0' /> <!-- Reposition the polygon -->
+      <rect width='38' height='38' x='-19' y='1' /> <!-- Reposition the rectangle -->
     </svg>
+    
+    
 
     <!-- <div class="inputBox">
       <input type="number" id="alpha_form" min="0" max="1" value="0.25" step="0.005">
@@ -142,24 +144,22 @@
       <text class="textElement" > speed </text>
     </g>
 
-
-    <svg id='speedSlider' class='slider glow-effect' width='200' height='125' viewBox='-100 -25 200 50'>
+ 
+    <svg id='speedSlider' class='slider glow-effect' width='200' height='124' viewBox='-100 -45 200 70'>
       <title> slide to change the speed of eversion</title>
-      <polygon fill='#555' points='-100 -20 -100 20 100 20 100 -20' />
-      <rect width='38' height='38' x='-19' y='-19' />
-      <text x='-50' y='-25'></text>
+      <text x='-5' y='-10' >speed</text> <!-- Position the text on top -->
+      <polygon fill='#555' points='-100 0 -100 40 100 40 100 0' /> <!-- Reposition the polygon -->
+      <rect width='38' height='38' x='-19' y='1' /> <!-- Reposition the rectangle -->
     </svg>
-    <g class="textElement">
-      <text class="textElement" > width </text>
-    </g>
+    <svg id='hingeLengthSlider' class='slider glow-effect' width='200' height='124' viewBox='-100 -45 200 70'>
+      <title> slide to change the width of the band</title>
+      <text x='-5' y='-10' >speed</text> <!-- Position the text on top -->
+      <polygon fill='#555' points='-100 0 -100 40 100 40 100 0' /> <!-- Reposition the polygon -->
+      <rect width='38' height='38' x='-19' y='1' /> <!-- Reposition the rectangle -->
+    </svg>
 
     
-    <svg id='hingeLengthSlider' class='slider glow-effect' width='200' height='125' viewBox='-100 -25 200 50'>
-      <title> slide to change the width of the band</title>
-      <polygon fill='#555' points='-100 -20 -100 20 100 20 100 -20' />
-      <rect width='38' height='38' x='-19' y='-19' />
-      <text x='-50' y='-25'></text>
-    </svg>
+     
 
   </div>
 

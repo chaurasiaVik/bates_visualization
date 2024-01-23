@@ -239,7 +239,7 @@ body {
   }
   
   #infoNumOf_m,#infoNumOf_n {
-  font-size:20px
+  font-size:18px
   }
  
   
@@ -633,7 +633,10 @@ svg {
   height: auto; /* Maintain the aspect ratio */
   /* Adjust margin-top or other properties as needed */
 }
-
+svg text{
+  font-size: 20px;
+}
+ 
 @media (max-width: 600px) {
   svg {
     width: 80%; /* Larger percentage for smaller screens */
@@ -642,18 +645,7 @@ svg {
   }
 }
 
-@media (orientation: landscape) and (max-width: 768px) {
-  .contentE {
-    height: 0px !important; /* Adjust height for landscape mode */
-  }
-  #renderCanvasE {
-    height: 0px !important;
-  }
-  #energySlider {
-    top: 5px !important;
-    opacity: 1 !important;
-  }
-}
+ 
 
 
 @media (max-width: 600px) {
@@ -686,17 +678,72 @@ svg {
    
 }
  
+.leftbar svg {
+  width: 95%; /* Make SVG width responsive */
+  height: auto; /* Keep the aspect ratio */
+  min-width: 120px; /* Minimum width */
+  min-height: 55px; /* Minimum height, adjust as needed */
+  font-size: 20px;
+}
 
-/* Styles for smaller screens */
-@media screen and (max-width: 700px) {
-  svg {
-    width: 150px; /* Minimum width for small screens */
-    height: 67.5px; /* Adjust the height proportionally */
+.leftbar text {
+  font-size: 14px; /* Starting font size, adjust as needed */
+}
+
+@media (max-width: 600px) {
+  .leftbar text {
+    font-size: 16px; /* Larger font size for smaller screens */
+  }
+ 
+}
+
+@media (max-width: 400px) {
+  .leftbar text {
+    font-size: 8px; /* Even larger font size for very small screens */
+  }
+ 
+}
+
+
+.leftbar, .rightbar{
+  /* existing styles */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: transparent transparent; /* For Firefox */
+}
+
+/* For Webkit browsers like Chrome and Safari */
+.leftbar::-webkit-scrollbar,.rightbar::-webkit-scrollbar {
+  width: 10px; /* Adjust the width of the scrollbar */
+}
+
+.leftbar::-webkit-scrollbar-thumb, .rightbar::-webkit-scrollbar-thumb{
+  background-color: transparent; /* Transparent scrollbar thumb */
+}
+
+/* Change scrollbar style on hover */
+.leftbar:hover,.rightbar:hover {
+  scrollbar-color: #888 #f0f0f0; /* For Firefox, adjust colors as needed */
+}
+
+.leftbar:hover::-webkit-scrollbar-thumb,.rightbar:hover::-webkit-scrollbar-thumb {
+  background-color: #888; /* For Webkit browsers, adjust color as needed */
+}
+
+
+#alphaSlider text, #speedSlider text, #hingeLengthSlider text{
+  font-size: 16px; /* Default font size */
+}
+
+@media (max-width: 600px) {
+  #alphaSlider text, #speedSlider text, #hingeLengthSlider text {
+    font-size: 10px; /* Smaller font size for smaller screens */
   }
 }
-@media screen and (max-height: 700px) {
-  svg {
-    width: 150px; /* Minimum width for small screens */
-    height: 67.5px; /* Adjust the height proportionally */
+
+@media (max-width: 400px) {
+  #alphaSlider text, #speedSlider text, #hingeLengthSlider text {
+    font-size: 8px; /* Even smaller font size for very small screens */
   }
 }
