@@ -54,9 +54,9 @@
 
 
     <g class="textElement">
-    <text  > parameters </text>
+      <text> parameters </text>
     </g>
- 
+
     <svg width='200' height='110' viewBox='-100 -55 200 110' style='margin-top:1px'>
       <g class='touchElement glow-effect' id='buttNumOf_m_Minus'>
         <title>decrease m</title>
@@ -69,9 +69,9 @@
         <polygon points='80 7 80 13 65 13 65 28 59 28 59 13 44 13 44 7 59 7 59 -8 65 -8 65 7' fill='#fff' />
         <!-- Adjusted y values in points -->
       </g>
-    
-      <g class="textElement" >
-        
+
+      <g class="textElement">
+
         <text id='infoNumOf_m' y='16'> m=1</text>
       </g>
     </svg>
@@ -91,16 +91,16 @@
         <text id='infoNumOf_n' y='16'> n=-2 </text>
       </g>
     </svg>
-     <br>
-     <br>
-     <svg id='alphaSlider' class='slider glow-effect' width='200' height='124' viewBox='-100 -45 200 70'>
+    <br>
+    <br>
+    <svg id='alphaSlider' class='slider glow-effect' width='200' height='124' viewBox='-100 -45 200 70'>
       <title> slide to alpha value </title>
-      <text x='-50' y='-10' >alpha</text> <!-- Position the text on top -->
+      <text x='-50' y='-10'>alpha</text> <!-- Position the text on top -->
       <polygon fill='#555' points='-100 0 -100 40 100 40 100 0' /> <!-- Reposition the polygon -->
       <rect width='38' height='38' x='-19' y='1' /> <!-- Reposition the rectangle -->
     </svg>
-    
-    
+
+
 
     <!-- <div class="inputBox">
       <input type="number" id="alpha_form" min="0" max="1" value="0.25" step="0.005">
@@ -108,7 +108,7 @@
 
     <br>
     <g class="textElement">
-      <text class="textElement" > play/pause </text>
+      <text class="textElement"> play/pause </text>
     </g>
 
     <svg id='playSVG' width='200' height='50' viewBox='-60 -60 120 120' style='margin-top:10px'>
@@ -141,35 +141,35 @@
 
     <br>
     <g class="textElement">
-      <text class="textElement" > speed </text>
+      <text class="textElement"> speed </text>
     </g>
 
- 
+
     <svg id='speedSlider' class='slider glow-effect' width='200' height='124' viewBox='-100 -45 200 70'>
       <title> slide to change the speed of eversion</title>
-      <text x='-5' y='-10' >speed</text> <!-- Position the text on top -->
+      <text x='-5' y='-10'>speed</text> <!-- Position the text on top -->
       <polygon fill='#555' points='-100 0 -100 40 100 40 100 0' /> <!-- Reposition the polygon -->
       <rect width='38' height='38' x='-19' y='1' /> <!-- Reposition the rectangle -->
     </svg>
 
-       <g class="textElement">
-      <text class="textElement" > width </text>
+    <g class="textElement">
+      <text class="textElement"> width </text>
     </g>
     <svg id='hingeLengthSlider' class='slider glow-effect' width='200' height='124' viewBox='-100 -45 200 70'>
       <title> slide to change the width of the band</title>
-      <text x='-5' y='-10' >speed</text> <!-- Position the text on top -->
+      <text x='-5' y='-10'>speed</text> <!-- Position the text on top -->
       <polygon fill='#555' points='-100 0 -100 40 100 40 100 0' /> <!-- Reposition the polygon -->
       <rect width='38' height='38' x='-19' y='1' /> <!-- Reposition the rectangle -->
     </svg>
 
-    
-     
+
+
 
   </div>
 
   <div class='rightbar'>
     <button class='button' id='buttFullScreen' title='enable full screen'> full screen </button>
-    
+
     <button class='button' id="buttShowKappa"
       title='curvature of the midline. the rainbow color corresponds to the arclength. the n red dots are evenly spaced points on the band with n half twists'>
       midline curvature</button>
@@ -276,20 +276,20 @@
     document.addEventListener('DOMContentLoaded', function () {
 
 
-const elements = document.querySelectorAll('.leftbar .touchElement, .leftbar .slider, .rightbar .touchElement, .rightbar .slider, .leftbar .button, .rightbar .button,   .rightbar .textElement');
-elements.forEach(el => el.classList.add('default-visible'));
+      const elements = document.querySelectorAll('.leftbar .touchElement, .leftbar .slider, .rightbar .touchElement, .rightbar .slider, .leftbar .button, .rightbar .button,   .rightbar .textElement');
+      elements.forEach(el => el.classList.add('default-visible'));
 
-setTimeout(() => {
-  elements.forEach(el => el.classList.remove('default-visible'));
-}, 15000);
-});
+      setTimeout(() => {
+        elements.forEach(el => el.classList.remove('default-visible'));
+      }, 15000);
+    });
 
 
 
 
     window.addEventListener('DOMContentLoaded', function () {
 
- 
+
       //const alphaForm = ebID('alpha_form');
 
 
@@ -315,7 +315,7 @@ setTimeout(() => {
       var alpha1;
       var n1_min = -m1 - 6;
       var n1_max = -m1 - 1;
-      
+
       // quantitites for alpha slider 
       var alphaSlider;
       var alphaSlider_min = 0;
@@ -331,7 +331,7 @@ setTimeout(() => {
       n = Math.abs(n1);
 
       updateAlphaRange(n1 / m1);
-      
+
 
       /// initialize the mesh
       data_t0(m1, n1, alpha1);
@@ -348,22 +348,22 @@ setTimeout(() => {
         // Update the range of n_slider and n_form based on the value
         // This example sets the min and max to be -value and value respectively
         // implementing  the closure condition abs(n)>abs(m)/2
-        let temp = Math.acos(-value - Math.sqrt(value * value - 1));  
+        let temp = Math.acos(-value - Math.sqrt(value * value - 1));
         alphaSlider_min = temp * .02;
         alphaSlider_max = temp;
 
 
         //alphaForm.value = (rangeMin + rangeMax) / 2;
- 
+
         alphaStepSize = (alphaSlider_max - alphaSlider_min) / 100; // Calculating the  
-        alphaSlider = new Slider2('alphaSlider', 0, 100 , 50, 'alpha ', 2, '%');
-        alpha1 =  alphaSlider.getValue()*alphaStepSize + alphaSlider_min ;
+        alphaSlider = new Slider2('alphaSlider', 0, 100, 50, 'alpha ', 2, '%');
+        alpha1 = alphaSlider.getValue() * alphaStepSize + alphaSlider_min;
         //ebID('alphaSlider').getElementsByTagName('rect')[0].setAttribute('x',x);
-        ebID('alphaSlider').getElementsByTagName('text')[0].innerHTML = "\u03B1 = " + (alpha1/Math.PI).toFixed(4).toString() + "&pi;"
-        
+        ebID('alphaSlider').getElementsByTagName('text')[0].innerHTML = "\u03B1 = " + (alpha1 / Math.PI).toFixed(4).toString() + "&pi;"
+
       }
- 
- 
+
+
 
       // change number of half twists ////////////////////////////////////////////////////
       ebID('buttNumOf_m_Minus').addEventListener('click', function () {
@@ -378,7 +378,7 @@ setTimeout(() => {
           updateAlphaRange(n1 / m1);
           ebID('infoNumOf_n').innerHTML = "n = " + n1.toString();
 
- 
+
 
           document.body.dispatchEvent(nChanged);
 
@@ -394,11 +394,11 @@ setTimeout(() => {
           n1_max = -m1 - 1;
           n1 = Math.round((n1_min + n1_max) / 2);
 
-          
+
           ebID('infoNumOf_n').innerHTML = "n = " + n1.toString();
           updateAlphaRange(n1 / m1);
 
-          
+
 
           document.body.dispatchEvent(nChanged);
         }
@@ -413,7 +413,7 @@ setTimeout(() => {
           // change the position of the energy slider 
           updateAlphaRange(n1 / m1);
 
-        
+
 
           document.body.dispatchEvent(nChanged);
         }
@@ -425,20 +425,20 @@ setTimeout(() => {
           ebID('infoNumOf_n').innerHTML = "n = " + n1.toString();
           updateAlphaRange(n1 / m1);
           // update alpha slider 
-          
+
 
           document.body.dispatchEvent(nChanged);
         }
       });
 
-       
+
 
       ebID('alphaSlider').addEventListener('sliderChange', function () {
-        alpha1 = alpha1 =  alphaSlider.getValue()*alphaStepSize + alphaSlider_min ;
-        ebID('alphaSlider').getElementsByTagName('text')[0].innerHTML = "\u03B1 = " + (alpha1/Math.PI).toFixed(4).toString() + "&pi;"
-        
+        alpha1 = alpha1 = alphaSlider.getValue() * alphaStepSize + alphaSlider_min;
+        ebID('alphaSlider').getElementsByTagName('text')[0].innerHTML = "\u03B1 = " + (alpha1 / Math.PI).toFixed(4).toString() + "&pi;"
 
-        
+
+
         document.body.dispatchEvent(nChanged);
       });
 
@@ -651,7 +651,7 @@ setTimeout(() => {
           var colors = [];
           var colorsBack = [];
 
-          for (var i = 1; i < N + 1; i++) {
+          for (var i = 1; i < N; i++) {
             var v1 = [v[6 * i - 5], v[6 * i - 3], -v[6 * i - 4]];
             var v2 = [v[6 * i - 2], v[6 * i], -v[6 * i - 1]];
 
@@ -678,15 +678,54 @@ setTimeout(() => {
               colorsBack.push(1, 0, 0, 1);
             }
 
-            if (i > 0) {
-              indices.push(2 * i - 1, 2 * i, 2 * i - 2);
-              indices.push(2 * i, 2 * i - 1, 2 * i + 1);
 
-              indicesBack.push(2 * i, 2 * i - 1, 2 * i - 2);
-              indicesBack.push(2 * i - 1, 2 * i, 2 * i + 1);
+            indices.push(2 * i - 1, 2 * i, 2 * i - 2);
+            indices.push(2 * i, 2 * i - 1, 2 * i + 1);
 
-            };
+            indicesBack.push(2 * i, 2 * i - 1, 2 * i - 2);
+            indicesBack.push(2 * i - 1, 2 * i, 2 * i + 1);
+
+
           };
+
+          i = N;
+
+          var v1 = [v[6 * i - 5], v[6 * i - 3], -v[6 * i - 4]];
+          var v2 = [v[6 * i - 2], v[6 * i], -v[6 * i - 1]];
+
+
+
+          pathMidline.push(new BABYLON.Vector3((v1[0] + v2[0]) / 2, (v1[1] + v2[1]) / 2, (v1[2] + v2[2]) / 2));
+
+          // surface 
+
+          pos.push(v1[0], v1[1], v1[2]);
+          pos.push(v2[0], v2[1], v2[2]);
+
+          if (colorScheme == 1) {
+            var c1 = jet(i - 1, N);;
+
+            colors.push(c1[0], c1[1], c1[2], c1[3]);
+            colors.push(c1[0], c1[1], c1[2], c1[3]);
+            colorsBack.push(c1[0], c1[1], c1[2], c1[3]);
+            colorsBack.push(c1[0], c1[1], c1[2], c1[3]);
+          } else {
+            colors.push(1, 1, 1, 1);
+            colors.push(1, 1, 1, 1);
+            colorsBack.push(1, 0, 0, 1);
+            colorsBack.push(1, 0, 0, 1);
+          }
+
+
+
+
+          indices.push(2 * i - 1, 2 * i + 1, 2 * i - 2);
+          indices.push(2 * i + 1, 2 * i - 1, 2 * i);
+
+          indicesBack.push(2 * i + 1, 2 * i - 1, 2 * i - 2);
+          indicesBack.push(2 * i - 1, 2 * i + 1, 2 * i);
+
+
 
           //   console.log(pathMidline)
           // Update the tube mesh with the new path
