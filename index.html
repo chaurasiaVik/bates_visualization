@@ -325,7 +325,7 @@
 
 
       ebID('infoNumOf_m').innerHTML = "m = " + m1.toString();
-      ebID('infoNumOf_n').innerHTML = "n = " + n1.toString();
+      ebID('infoNumOf_n').innerHTML = "N = " + n1.toString();
       // ebID('alpha_value').innerHTML = "\u03B1 = " + parseFloat(this.value).toFixed(4).toString() + "&pi;";
       // number of twists 
       n = Math.abs(n1);
@@ -376,7 +376,7 @@
           n1_max = -m1 - 1;
           n1 = Math.round((n1_min + n1_max) / 2);
           updateAlphaRange(n1 / m1);
-          ebID('infoNumOf_n').innerHTML = "n = " + n1.toString();
+          ebID('infoNumOf_n').innerHTML = "N = " + n1.toString();
 
 
 
@@ -395,7 +395,7 @@
           n1 = Math.round((n1_min + n1_max) / 2);
 
 
-          ebID('infoNumOf_n').innerHTML = "n = " + n1.toString();
+          ebID('infoNumOf_n').innerHTML = "N = " + n1.toString();
           updateAlphaRange(n1 / m1);
 
 
@@ -409,7 +409,7 @@
       ebID('buttNumOf_n_Minus').addEventListener('click', function () {
         if (n1 > n1_min) {
           n1 = n1 - 1;
-          ebID('infoNumOf_n').innerHTML = "n = " + n1.toString();
+          ebID('infoNumOf_n').innerHTML = "N = " + n1.toString();
           // change the position of the energy slider 
           updateAlphaRange(n1 / m1);
 
@@ -422,7 +422,7 @@
         if (n1 < n1_max) {
           n1 = n1 + 1;
           // change the position of the energy slider 
-          ebID('infoNumOf_n').innerHTML = "n = " + n1.toString();
+          ebID('infoNumOf_n').innerHTML = "N = " + n1.toString();
           updateAlphaRange(n1 / m1);
           // update alpha slider 
 
