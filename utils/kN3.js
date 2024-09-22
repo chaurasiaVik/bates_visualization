@@ -1248,7 +1248,7 @@ var createChart = function(nu_i) {
         plugins: {
           title: {
             display: true,
-            text: 'curvature of the midline'
+            text: "normalized curvature"
           },
           legend: {
             display: true,
@@ -1360,7 +1360,7 @@ var  createchartK = function(kappa) {
           },
           title: {
             display: true,
-            text: "curvature of midline", // HTML to display x^2
+            text: "normalized curvature", // HTML to display x^2
             color: "white", font: {
               size: 14
             }, //
@@ -1410,7 +1410,7 @@ var  createchartK = function(kappa) {
 
   for (var i = 0; i < kappa_y.length - 1; i++) {
     chartK.data.datasets.push({
-      label: 'curvature of the midline',
+      label: "normalized curvature",
       data: [
         { x: kappa_x[i], y: kappa_y[i] },
         { x: kappa_x[i + 1], y: kappa_y[i + 1] },
