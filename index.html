@@ -356,7 +356,7 @@
         //alphaForm.value = (rangeMin + rangeMax) / 2;
 
         alphaStepSize = (alphaSlider_max - alphaSlider_min) / 100; // Calculating the  
-        alphaSlider = new Slider2('alphaSlider', 0, 100, 50, 'alpha ', 2, '%');
+        alphaSlider = new Slider2('alphaSlider', 0, 100, 70, 'alpha ', 2, '%');
         alpha1 = alphaSlider.getValue() * alphaStepSize + alphaSlider_min;
         //ebID('alphaSlider').getElementsByTagName('rect')[0].setAttribute('x',x);
         ebID('alphaSlider').getElementsByTagName('text')[0].innerHTML = "\u03B1 = " + (alpha1 / Math.PI).toFixed(4).toString() + "&pi;"
@@ -1234,16 +1234,25 @@
 
 
         var tubeMid = [];
-        ebID('buttShowMid').addEventListener('click', function () {
-          showMid = !showMid;
-          buttonSwitchColor(ebID('buttShowMid'), showMid);
-          if (showMid) createTube(tubeMid, 1, 0.5 * 3, yellow);
-          else {
-            meshDispose(tubeMid);
-            meshDispose(golf);
-          }
-          refresh = true;
-        });
+  var buttShowMid = ebID('buttShowMid');
+
+  buttShowMid.addEventListener('click', function () {
+    showMid = !showMid;
+    buttonSwitchColor(buttShowMid, showMid);
+    if (showMid) createTube(tubeMid, 1, 0.5 * 3, yellow);
+    else {
+      meshDispose(tubeMid);
+      meshDispose(golf);
+    }
+    refresh = true;
+  });
+
+  // Call the click event handler directly to simulate the click effect
+  // Toggle showMid and perform initial actions
+  showMid = true; // Set the initial state
+  buttonSwitchColor(buttShowMid, showMid);
+  createTube(tubeMid, 1, 0.5 * 3, yellow);
+  refresh = true;
         ///////////////////////////////////////////////////////////////////////////////////
 
         camera.attachControl(canvas, false);
