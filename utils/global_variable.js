@@ -39,7 +39,7 @@ var linspace;
 var N;
 var n = 3;
 var nMax = 75;
-var hl = 0..15;
+var hl = 0.15;
 var speedy = 0.01;
 var k = 0;
 var play = false;
